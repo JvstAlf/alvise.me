@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Fungky';
+  src: url('/assets/Fungky\ Brow.otf') format('opentype');
+  font-display: swap;
+}
+
+:root {
+  --main-color: #a454ff;
+  overflow-x: hidden;
+}
+
+.fungky {
+  font-family: 'Fungky', sans-serif;
+}
+
+.bagel {
+  font-family: 'Bagel Fat One', sans-serif;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+}
+
+a, h1, h2, p {
+  -webkit-user-drag: none;
+}
+
+::selection {
+  background-color: var(--main-color);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  background-color: rgb(227, 208, 255);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 1rem;
+  cursor: pointer;
+}
