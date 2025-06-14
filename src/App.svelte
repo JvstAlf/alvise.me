@@ -46,7 +46,7 @@ $inspect(cursorBig)
 
 <main class="w-full min-h-screen cursor-none relative">
   <!-- Custom cursor -->
-  {#if cursorVisible || window.innerWidth > 800}
+  {#if cursorVisible && window.innerWidth > 800}
   <div
     class="pointer-events-none fixed z-999 rounded-full bg-purple-500/30 backdrop-blur-xs transition-all duration-200 ease-out"
     style="
