@@ -9,7 +9,11 @@
 
 :root {
   --main-color: #a454ff;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+}
+
+html {
+  overflow-x: hidden !important;
 }
 
 .fungky {
