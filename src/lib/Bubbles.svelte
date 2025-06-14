@@ -53,7 +53,7 @@ function checkScroll() {
   }
 
   function generateBubbles() {
-    bubbles = Array.from({ length: 15 }, (_, i) => ({
+    bubbles = Array.from({ length: 12 }, (_, i) => ({
       id: i,
       size: randomSize(bubbleSizeRange),
       left: 0 + Math.random() * 100,

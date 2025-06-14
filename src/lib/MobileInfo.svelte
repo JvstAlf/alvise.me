@@ -11,6 +11,17 @@
 
 function showPrograms(value: boolean) {
   programs.style.pointerEvents = value ? 'auto' : 'none'
+  if(value === true) {
+    programs.style.display = 'flex'
+    setTimeout(() => {
+    programs.style.translate = '0'
+  }, 100);
+  } else {
+    programs.style.translate = '1000px'
+    setTimeout(() => {
+    programs.style.display = 'none'
+  }, 250)
+  }
   info.style.pointerEvents = value ? 'none' : 'auto'
   info1.style.translate = value ? '-1000px' : '0'
   info2.style.translate = value ? '1000px' : '0'
@@ -19,7 +30,6 @@ function showPrograms(value: boolean) {
   info5.style.translate = value ? '1000px' : '0'
   button1.style.translate = value ? '-1000%': '-50%'
   button2.style.translate = value ? '-25%' : '1000px'
-  programs.style.translate = value ? '0': '1000px'
 }
 
   onMount(() => {
@@ -27,7 +37,7 @@ function showPrograms(value: boolean) {
       ([entry]) => {
         isVisible = entry.isIntersecting;
       },
-      { threshold: 0.8}
+      { threshold: 0.7}
     );
 
     if (element) observer.observe(element);
@@ -108,7 +118,7 @@ function showPrograms(value: boolean) {
   </div>
 
   <a
-    class="transition-all duration-700 ease-in-out w-25 h-25 flex justify-center text-lg bagel cursor-none items-center rounded-full bg-purple-400/20 border border-purple-400/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[70%] left-[5%]"
+    class="transition-all text-center duration-700 ease-in-out w-25 h-25 flex justify-center text-lg bagel cursor-none items-center rounded-full bg-purple-400/20 border border-purple-400/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[70%] left-[5%]"
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}
@@ -122,7 +132,7 @@ function showPrograms(value: boolean) {
   </a>
 
   <a
-    class="transition-all duration-700 ease-in-out w-25 h-25 flex justify-center text-lg bagel cursor-none items-center rounded-full bg-purple-400/20 border border-purple-400/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[70%] right-[5%]"
+    class="transition-all text-center duration-700 ease-in-out w-25 h-25 flex justify-center text-lg bagel cursor-none items-center rounded-full bg-purple-400/20 border border-purple-400/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[70%] right-[5%]"
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}
@@ -141,7 +151,7 @@ function showPrograms(value: boolean) {
   </div>
 
 
-  <div class="w-full h-screen transition-all duration-600 absolute translate-x-[1000px] pointer-events-none" bind:this={programs}>
+  <div class="w-full h-screen transition-all duration-600 absolute translate-x-[1000px] pointer-events-none hidden" bind:this={programs}>
 
   <Program
   href="https://en.wikipedia.org/wiki/HTML"

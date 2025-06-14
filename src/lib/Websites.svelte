@@ -40,10 +40,13 @@
     {#if window.innerWidth > 800}
 
     <div class="w-[70%] h-auto aspect-video relative">
-    <iframe src={iframeHref} frameborder="0" class="w-full h-full bg-white rounded-3xl border-2 border-purple-500 shadow-purple-300 shadow-2xl" name="iframe" title="Websites"></iframe>
+    <div class=" absolute w-75 inner-glow h-75 z-1 top-[-10%] right-[5%] cursor-none rounded-full inner-glow bg-purple-400/30 border border-purple-300/80 backdrop-blur-xs transition-all duration-400"></div>
+    <div class=" absolute w-100 inner-glow h-100 z-1 bottom-[-15%] left-[-5%] cursor-none rounded-full inner-glow bg-purple-400/30 border border-purple-300/80 backdrop-blur-xs transition-all duration-400"></div>
+    <iframe src={iframeHref} frameborder="0" class="w-full h-full bg-white rounded-3xl border-2 border-purple-500 shadow-purple-300 shadow-2xl z-10 absolute" name="iframe" title="Websites"></iframe>
     <a target="_blank" href={iframeHref} class="text-center absolute w-15 inner-glow h-15 top-[5%] right-[3%] cursor-none z-20 rounded-full inner-glow bg-purple-400/20 border border-purple-300/80 backdrop-blur-xs flex items-center justify-center hover:scale-110 transition-all duration-400 bagel text-2xl text-purple-400"
     onmouseenter={() => setCursorBig(true)}
     onmouseleave={() => setCursorBig(false)}>➦</a>
+    
     </div>
 
     {/if}

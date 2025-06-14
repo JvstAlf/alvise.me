@@ -56,7 +56,7 @@
   </div>
 
   <a
-    class="transition-all duration-700 ease-in-out w-40 h-40 hover:scale-110 flex justify-center text-2xl bagel cursor-none items-center rounded-full bg-purple-400/20 border border-purple-400/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[55%] left-[10%]"
+    class="transition-all text-center duration-700 ease-in-out w-40 h-40 hover:scale-110 flex justify-center text-2xl bagel cursor-none items-center rounded-full bg-purple-400/20 border border-purple-400/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[55%] left-[10%]"
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}
@@ -70,7 +70,7 @@
   </a>
 
   <a
-    class="transition-all duration-700 ease-in-out w-40 h-40 hover:scale-110 flex justify-center text-2xl bagel cursor-none items-center rounded-full bg-purple-400/20 border border-purple-400/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[75%] left-[15%]"
+    class="transition-all text-center duration-700 ease-in-out w-40 h-40 hover:scale-110 flex justify-center text-2xl bagel cursor-none items-center rounded-full bg-purple-400/20 border border-purple-400/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[75%] left-[15%]"
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}
