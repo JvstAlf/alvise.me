@@ -28,7 +28,7 @@
   });
 </script>
 
-<section class="w-full h-screen flex justify-center items-center relative transition-all duration-500" bind:this={element}
+<section class="w-full h-screen flex justify-center items-center relative transition-all duration-500 overflow-x-hidden" bind:this={element}
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}
