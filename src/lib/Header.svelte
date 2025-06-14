@@ -25,7 +25,8 @@
   let bubbles = $state<Bubble[]>([]);
 
   function onMouseDown(event: MouseEvent, bubbleId: number) {
-    draggingId = bubbleId;
+    if(window.innerWidth > 800) {
+      draggingId = bubbleId;
     const el = document.querySelector(`[data-id="${bubbleId}"]`) as HTMLElement;
     if (!el) return;
 
@@ -35,6 +36,10 @@
 
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', onMouseUp);
+    } else {
+      console.log('bubble drag disabled on mobile devices')
+    }
+    
   }
 
   function onMouseMove(event: MouseEvent) {
