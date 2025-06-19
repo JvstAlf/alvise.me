@@ -20,6 +20,21 @@ const slideCount = slides.length;
 const angleStep = 36;
 let radius = $state(225)
 
+let carouselWrapper: HTMLElement;
+
+function handleTouchStart(e: TouchEvent) {
+  startY = e.touches[0].clientY;
+}
+
+function handleTouchMove(e: TouchEvent) {
+  const deltaY = e.touches[0].clientY - startY;
+
+  // Prevent vertical scrolling if dragging vertically
+  if (Math.abs(deltaY) > 5) {
+    e.preventDefault();
+  }
+}
+
   let startY = 0;
   let currentRotation = 0;
   let isDragging = false;
@@ -71,6 +86,18 @@ let isVisible = $state(false);
   let element: HTMLElement;
 
   onMount(() => {
+  if (!carouselWrapper) return;
+
+  carouselWrapper.addEventListener('touchstart', handleTouchStart, { passive: false });
+  carouselWrapper.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+  return () => {
+    carouselWrapper.removeEventListener('touchstart', handleTouchStart);
+    carouselWrapper.removeEventListener('touchmove', handleTouchMove);
+  };
+});
+
+  onMount(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
@@ -116,6 +143,7 @@ bind:this={element}
   class="carousel__slide transition-transform duration-300"
   role="listitem"
   style="transform: rotateX({i * angleStep}deg) translateZ({radius}px); touch-action: none;"
+  bind:this={carouselWrapper}
   onpointerdown={onPointerDown}
   onpointermove={onPointerMove}
   onpointerup={onPointerUp}

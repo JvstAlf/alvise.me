@@ -25,21 +25,18 @@
   let bubbles = $state<Bubble[]>([]);
 
   function onMouseDown(event: MouseEvent, bubbleId: number) {
-    if(window.innerWidth > 800) {
+    if (window.innerWidth > 800) {
       draggingId = bubbleId;
-    const el = document.querySelector(`[data-id="${bubbleId}"]`) as HTMLElement;
-    if (!el) return;
+      const el = document.querySelector(`[data-id="${bubbleId}"]`) as HTMLElement;
+      if (!el) return;
 
-    const rect = el.getBoundingClientRect();
-    offsetX = event.clientX - rect.left;
-    offsetY = event.clientY - rect.top;
+      const rect = el.getBoundingClientRect();
+      offsetX = event.clientX - rect.left;
+      offsetY = event.clientY - rect.top;
 
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseup', onMouseUp);
-    } else {
-      console.log('bubble drag disabled on mobile devices')
+      window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('mouseup', onMouseUp);
     }
-    
   }
 
   function onMouseMove(event: MouseEvent) {
@@ -55,11 +52,11 @@
     const idx = bubbles.findIndex((b) => b.id === draggingId);
     if (idx !== -1) {
       const bubble = bubbles[idx];
-bubbles = [
-  ...bubbles.slice(0, idx),
-  { ...bubble, left: percentLeft, top: percentTop },
-  ...bubbles.slice(idx + 1)
-];
+      bubbles = [
+        ...bubbles.slice(0, idx),
+        { ...bubble, left: percentLeft, top: percentTop },
+        ...bubbles.slice(idx + 1)
+      ];
     }
   }
 
@@ -70,97 +67,43 @@ bubbles = [
         [draggingId]: (animationKeys[draggingId] ?? 0) + 1
       };
     }
-
     draggingId = null;
     window.removeEventListener('mousemove', onMouseMove);
     window.removeEventListener('mouseup', onMouseUp);
   }
 
-  function updateScale() {
-    const scrollY = window.scrollY;
-    const width = window.innerWidth
-    const vh = window.innerHeight;
-    const minScale = 0;
-
-    if(width < 800) {
-      if (scrollY <= 0.9 * vh) {
-      bubbleScale = scrollY / (0.9 * vh);
-    } else if (scrollY <= 1.1 * vh) {
-        bubbleScale = 1
-    } else if (scrollY <= 1.75 * vh) {
-      const t = (scrollY - 1 * vh) / (0.75 * vh);
-      bubbleScale = 1 - t * (1 - minScale);
-    } else if (scrollY <= 4 * vh && scrollY >= 3.5 * vh) {
-    const t = (scrollY - 3.5 * vh) / (0.5 * vh);
-    bubbleScale = minScale + t * (1 - minScale);
-  } else if (scrollY < 3.5 * vh) {
-    bubbleScale = 0;
-  } else {
-    bubbleScale = 0.9;
-  }
-    } else {
-    if (scrollY <= 0.9 * vh) {
-      bubbleScale = scrollY / (0.9 * vh);
-    } else if (scrollY <= 1.1 * vh) {
-        bubbleScale = 1
-    } else if (scrollY <= 1.9 * vh) {
-      const t = (scrollY - 1.1 * vh) / (0.8 * vh);
-      bubbleScale = 1 - t * (1 - minScale);
-    } else {
-      bubbleScale = minScale;
-    }
-    }
-
-    xOffset = Math.sin(bubbleScale * Math.PI * 2) * maxOffset;
-  }
-
-  let ticking = false;
-  function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        updateScale();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }
-
   interface SizeRange {
-  min: number;
-  max: number;
+    min: number;
+    max: number;
   }
 
   let bubbleSizeRangeForeground: SizeRange = { min: 40, max: 110 };
   let bubbleSizeRangeBackground: SizeRange = { min: 120, max: 320 };
 
- function updateSizeRanges() {
-  const width = window.innerWidth;
-
-  if (width < 640) {
-    // Small screens (mobile)
-    bubbleSizeRangeForeground = { min: 10, max: 50 };
-    bubbleSizeRangeBackground = { min: 80, max: 150 };
-  } else if (width < 1024) {
-    // Medium screens (tablets)
-    bubbleSizeRangeForeground = { min: 30, max: 80 };
-    bubbleSizeRangeBackground = { min: 100, max: 200 };
-  } else {
-    // Large screens (desktops)
-    bubbleSizeRangeForeground = { min: 50, max: 130 };
-    bubbleSizeRangeBackground = { min: 150, max: 250 };
+  function updateSizeRanges() {
+    const width = window.innerWidth;
+    if (width < 640) {
+      bubbleSizeRangeForeground = { min: 10, max: 50 };
+      bubbleSizeRangeBackground = { min: 80, max: 150 };
+    } else if (width < 1024) {
+      bubbleSizeRangeForeground = { min: 30, max: 80 };
+      bubbleSizeRangeBackground = { min: 100, max: 200 };
+    } else {
+      bubbleSizeRangeForeground = { min: 50, max: 130 };
+      bubbleSizeRangeBackground = { min: 150, max: 250 };
+    }
   }
-}
 
-function randomSize(range: SizeRange) {
-  return range.min + Math.random() * (range.max - range.min);
-}
+  function randomSize(range: SizeRange) {
+    return range.min + Math.random() * (range.max - range.min);
+  }
 
-  function generateBubbles() {
+function generateBubbles() {
   const newForegroundBubbles = Array.from({ length: 8 }, (_, i) => ({
     id: i,
     size: randomSize(bubbleSizeRangeForeground),
-    left: 10 + Math.random() * 70,
-    top: 48,
+    left: 10 + Math.random() * 70,              // Random horizontal pos
+    top: 20 + Math.random() * 60,               // Random vertical pos
     delay: -(i * 0.5),
     duration: 8 + Math.random() * 6,
     type: 'foreground' as const
@@ -176,67 +119,138 @@ function randomSize(range: SizeRange) {
     type: 'background' as const
   }));
 
-  bubbles.splice(0, bubbles.length, ...newForegroundBubbles, ...newBackgroundBubbles);
-
-  updateScale();
-    window.addEventListener('scroll', onScroll);
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
+  bubbles = [...newForegroundBubbles, ...newBackgroundBubbles];
 }
 
-  onMount(() => {
-  updateSizeRanges();
-  generateBubbles();
 
-  const onResize = () => {
+  let previousScale = 0;
+  function updateScale() {
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const vh = window.innerHeight;
+    const minScale = 0;
+
+    let newScale = 0;
+if (width < 800) {
+  if (scrollY <= 0.9 * vh) {
+    newScale = scrollY / (0.9 * vh);
+  } else if (scrollY <= 1.1 * vh) {
+    newScale = 1;
+  } else if (scrollY <= 1.75 * vh) {
+    newScale = 1 - ((scrollY - 1 * vh) / (0.75 * vh)) * (1 - minScale);
+  } else if (scrollY <= 3.5 * vh) {
+    // Hold at minScale between 1.75vh and 3.5vh
+    newScale = minScale;
+  } else if (scrollY <= 4 * vh) {
+    newScale = minScale + ((scrollY - 3.5 * vh) / (0.5 * vh)) * (1 - minScale);
+  } else {
+    newScale = 1;
+  }
+} else {
+  if (scrollY <= 0.9 * vh) {
+    newScale = scrollY / (0.9 * vh);
+  } else if (scrollY <= 1.1 * vh) {
+    newScale = 1;
+  } else if (scrollY <= 1.9 * vh) {
+    newScale = 1 - ((scrollY - 1.1 * vh) / (0.8 * vh)) * (1 - minScale);
+  } else if (scrollY <= 3.5 * vh) {
+    newScale = minScale;
+  } else if (scrollY <= 4 * vh) {
+    newScale = minScale + ((scrollY - 3.5 * vh) / (0.5 * vh)) * (1 - minScale);
+  } else {
+    newScale = 1;
+  }
+}
+
+
+    // Only update if different enough
+    if (Math.abs(newScale - previousScale) > 0.01) {
+      bubbleScale = newScale;
+      previousScale = newScale;
+      xOffset = Math.sin(bubbleScale * Math.PI * 2) * maxOffset;
+    }
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateScale();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  let currentSizeCategory: 'small' | 'medium' | 'large' | null = null;
+
+  function getSizeCategory(width: number): typeof currentSizeCategory {
+    if (width < 640) return 'small';
+    if (width < 1024) return 'medium';
+    return 'large';
+  }
+
+  onMount(() => {
+    currentSizeCategory = getSizeCategory(window.innerWidth);
     updateSizeRanges();
     generateBubbles();
-  };
+    updateScale();
 
-  window.addEventListener('resize', onResize);
-  return () => window.removeEventListener('resize', onResize);
-});
+    const resizeHandler = () => {
+      const newCategory = getSizeCategory(window.innerWidth);
+      if (newCategory !== currentSizeCategory) {
+        currentSizeCategory = newCategory;
+        updateSizeRanges();
+        generateBubbles();
+      }
+    };
 
+    window.addEventListener('resize', resizeHandler);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+      window.removeEventListener('scroll', onScroll);
+    };
+  });
 </script>
 
-
 <section class="relative w-full h-screen flex items-center justify-center overflow-y-visible text-black overflow-x-hidden">
-  
-  <img src="assets/logo.png" alt="logo" class="w-[75%] absolute top-[50%] left-[50%] translate-[-50%] opacity-10">
+  <img src="assets/logo.png" alt="logo" class="w-[75%] absolute top-[50%] left-[50%] translate-[-50%] opacity-10" />
 
   {#each bubbles as bubble (bubble.id)}
-  {#key animationKeys[bubble.id] ?? 0}
-    <div
-      class="absolute rounded-full pointer-events-auto backdrop-blur-xs inner-glow bubble {bubble.type === 'foreground' ? 'bg-purple-400/10 border-purple-300/20' : 'bg-purple-400/25 border-purple-300/40'}"
-      data-id={bubble.id}
-      onmousedown={(e) => onMouseDown(e, bubble.id)}
-      onmouseenter={() => hoveringId = bubble.id}
-      onmouseleave={() => hoveringId = null}
-      role="button"
-      tabindex="0"
-      style="
-        z-index: {bubble.type === 'foreground' ? 50 : 6};
-        width: {bubble.size}px;
-        height: {bubble.size}px;
-        left: {bubble.left}%;
-        top: {bubble.top}%;
-        animation-delay: {bubble.delay}s;
-        animation-duration: {bubble.duration}s;
-        animation-play-state: {(draggingId === bubble.id || hoveringId === bubble.id) ? 'paused' : 'running'};
-      "
-    ></div>
-  {/key}
-{/each}
+    {#key animationKeys[bubble.id] ?? 0}
+      <div
+        class="absolute rounded-full pointer-events-auto backdrop-blur-xs inner-glow bubble {bubble.type === 'foreground' ? 'bg-purple-400/10 border-purple-300/20' : 'bg-purple-400/25 border-purple-300/40'}"
+        data-id={bubble.id}
+        onmousedown={(e) => onMouseDown(e, bubble.id)}
+        onmouseenter={() => (hoveringId = bubble.id)}
+        onmouseleave={() => (hoveringId = null)}
+        role="button"
+        tabindex="0"
+        style="
+  z-index: {bubble.type === 'foreground' ? 50 : 6};
+  width: {bubble.size}px;
+  height: {bubble.size}px;
+  left: {bubble.left}vw;
+  top: {bubble.top}vh;
+  animation-delay: {bubble.delay}s;
+  animation-duration: {bubble.duration}s;
+  animation-play-state: {(draggingId === bubble.id || hoveringId === bubble.id) ? 'paused' : 'running'};
+"
+      ></div>
+    {/key}
+  {/each}
 
-  <h1 class="text-scale relative z-10 fungky text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] selection:bg-[var(--main-color)] selection:text-white text-animation text-center">Alvise Zurlandi</h1>
-
+  <h1 class="text-scale relative z-10 fungky text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] selection:bg-[var(--main-color)] selection:text-white text-animation text-center">
+    Alvise Zurlandi
+  </h1>
 </section>
 
 <div
-  class="fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] pointer-events-auto special-bubble-wrapper"
-  style="transform: translateX({xOffset}px) scale({bubbleScale}); transition: transform 0.1s ease-out;">
+  class="fixed top-1/2 left-1/2 pointer-events-auto special-bubble-wrapper"
+  style="transform: translate(calc(-50% + {xOffset}px), -50%) scale({bubbleScale}); transition: transform 0.1s ease-out;"
+>
   <div class="special-bubble"></div>
 </div>
 
