@@ -194,7 +194,7 @@ function showPrograms(value: boolean) {
   />
 
   <Program
-  href="https://en.wikipedia.org/wiki/Illustrator"
+  href="https://en.wikipedia.org/wiki/Adobe_Illustrator"
   top="40%"
   left="10%"
   progressTarget={90}
