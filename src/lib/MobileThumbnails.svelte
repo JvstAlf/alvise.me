@@ -136,6 +136,7 @@ bind:this={element}
   class="carousel-wrapper transition-all duration-500 absolute bottom-0"
   role="region"
   aria-label="Image Carousel"
+  bind:this={carouselWrapper}
 >
   <div class="carousel" style="transform: rotateX({$rotation}deg);">
     {#each slides as src, i}
@@ -143,7 +144,6 @@ bind:this={element}
   class="carousel__slide transition-transform duration-300"
   role="listitem"
   style="transform: rotateX({i * angleStep}deg) translateZ({radius}px); touch-action: none;"
-  bind:this={carouselWrapper}
   onpointerdown={onPointerDown}
   onpointermove={onPointerMove}
   onpointerup={onPointerUp}
