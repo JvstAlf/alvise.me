@@ -10,11 +10,11 @@
   })
 
 function checkScroll() {
-  if (window.scrollY >= window.innerHeight * 1.5) {
-    scale = 1;
+  if (window.scrollY >= window.innerHeight * 1.5 && window.scrollY <= window.innerHeight * 3.5) {
+    scale = 1
   } else {
     scale = 0;
-  }
+  } 
 }
 
   interface Bubble {
@@ -68,7 +68,6 @@ function checkScroll() {
   updateSizeRanges();
   generateBubbles(); // ← generate immediately, not on scroll
   window.addEventListener('scroll', checkScroll);
-  return () => window.removeEventListener('scroll', checkScroll);
 });
 
 </script>
@@ -80,7 +79,7 @@ function checkScroll() {
   {#each bubbles as bubble (bubble.id)}
     {#key animationKeys[bubble.id] ?? 0}
       <div
-        class="absolute rounded-full backdrop-blur-xl inner-glow bubble bg-purple-400/10 border-purple-300/20 {scale ? 'visible' : ''}"
+        class="absolute rounded-full backdrop-blur-xl inner-glow bubble bg-purple-400/10 border-purple-300/20"
         style="
           z-index: -10;
           width: {bubble.size}px;
@@ -89,7 +88,7 @@ function checkScroll() {
           top: {bubble.top}%;
           animation-delay: {bubble.delay}s;
           animation-duration: {bubble.duration}s;
-          opacity: {scale}; /* only animate this, not scale */
+          opacity: {scale};
         "
       ></div>
     {/key}

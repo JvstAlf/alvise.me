@@ -19,7 +19,7 @@
       ([entry]) => {
         isVisible = entry.isIntersecting;
       },
-      { threshold: 0.5 }
+      { threshold: 0.6 }
     );
 
     if (element) observer.observe(element);
@@ -96,28 +96,28 @@
     onmouseenter={() => setCursorBig(true)}
     onmouseleave={() => setCursorBig(false)}
     onclick={() => handleIframeLinkClick('https://portfolio.alvise.me/')}
-    ><img src="https://portfolio.alvise.me/images/logo.png" class="absolute w-[40%] white-glow object-center p-1 rounded-full z-20 bg-white/70 inner-glow top-[-10%] left-[-10%] backdrop-blur-2xl" alt="logo">
+    ><img src="https://portfolio.alvise.me/images/logo.png" class="absolute w-[40%] white-glow object-center p-1 rounded-full z-20 bg-white/70 inner-glow2 top-[-10%] left-[-10%] backdrop-blur-2xl" alt="logo">
     Portfolio</a>
 
     <a href="https://off-white.alvise.me/" target="iframe" class="text-center absolute w-40 inner-glow h-40 top-[48%] left-[8%] cursor-none z-15 rounded-full inner-glow bg-purple-400/20 border border-purple-300/80 backdrop-blur-xs flex items-center justify-center hover:scale-110 transition-all duration-400 bagel text-xl"
     onmouseenter={() => setCursorBig(true)}
     onmouseleave={() => setCursorBig(false)}
     onclick={() => handleIframeLinkClick('https://off-white.alvise.me/')}
-    ><img src="https://off-white.alvise.me/images/logo.svg" class="absolute w-[40%] object-center p-1 rounded-full bg-white/70 inner-glow top-[-10%] right-[-10%] backdrop-blur-2xl" alt="logo">
+    ><img src="https://off-white.alvise.me/images/logo.svg" class="absolute w-[40%] object-center p-1 rounded-full bg-white/70 inner-glow2 top-[-10%] right-[-10%] backdrop-blur-2xl" alt="logo">
     Off-White</a>
 
     <a href="https://demonlist.alvise.me/" target="iframe" class="text-center absolute w-40 inner-glow h-40 top-[65%] right-[7%] cursor-none z-15 rounded-full inner-glow bg-purple-400/20 border border-purple-300/80 backdrop-blur-xs flex items-center justify-center hover:scale-110 transition-all duration-400 bagel text-xl"
     onmouseenter={() => setCursorBig(true)}
     onmouseleave={() => setCursorBig(false)}
     onclick={() => handleIframeLinkClick('https://demonlist.alvise.me/')}
-    ><img src="https://demonlist.alvise.me/assets/icon-qKxQj6EV.png" class="absolute w-[40%] object-center p-1 rounded-full bg-white/70 inner-glow top-[-10%] left-[-10%] backdrop-blur-2xl" alt="logo">
+    ><img src="https://demonlist.alvise.me/assets/icon-qKxQj6EV.png" class="absolute w-[40%] object-center p-1 rounded-full bg-white/70 inner-glow2 top-[-10%] left-[-10%] backdrop-blur-2xl" alt="logo">
     Svelte App</a>
 
     <a href="https://old.alvise.me/" target="iframe" class="text-center absolute w-40 inner-glow h-40 top-[30%] right-[8%] cursor-none z-15 rounded-full inner-glow bg-purple-400/20 border border-purple-300/80 backdrop-blur-xs flex items-center justify-center hover:scale-110 transition-all duration-400 bagel text-xl"
     onmouseenter={() => setCursorBig(true)}
     onmouseleave={() => setCursorBig(false)}
     onclick={() => handleIframeLinkClick('https://old.alvise.me/')}
-    ><img src="https://www.alvise.me/favicon.ico" class="absolute w-[40%] object-center p-1 rounded-full bg-white/70 inner-glow top-[-10%] left-[-10%] backdrop-blur-2xl" alt="logo">
+    ><img src="https://www.alvise.me/favicon.ico" class="absolute w-[40%] object-center p-1 rounded-full bg-white/70 inner-glow2 top-[-10%] left-[-10%] backdrop-blur-2xl" alt="logo">
     Old alvise.me</a>
 
     {/if}
@@ -129,6 +129,10 @@
 .inner-glow {
     box-shadow: inset 0 0 12px 4px rgba(154, 107, 248, 0.3);
     animation: float-slow 4s infinite alternate;
+  }
+
+  .inner-glow2 {
+    box-shadow: inset 0 0 12px 4px rgba(154, 107, 248, 0.3);
   }
 
   .text-an {

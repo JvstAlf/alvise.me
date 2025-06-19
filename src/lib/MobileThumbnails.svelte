@@ -132,8 +132,8 @@ bind:this={element}
     {/each}
   </div>
 
-  <button class="absolute left-[50%] top-[5%] translate-x-[-50%] w-15 h-15 lg:w-20 lg:h-20 md:w-20 md:h-20 xl:w-20 xl:h-20 cursor-none z-15 rounded-full bg-purple-400/10 border-2 border-purple-300/50 backdrop-blur-xs inner-glow flex items-center justify-center inner-glow hover:scale-110 transition-all duration-400 text-purple-400 font-bold text-3xl md:text-4xl" onclick={() => rotate('up')}><span class="w-full h-full flex justify-center items-center absolute bottom-1">&#8679;</span></button>
-  <button class="absolute left-[50%] bottom-[5%] translate-x-[-50%] w-15 h-15 lg:w-20 lg:h-20 md:w-20 md:h-20 xl:w-20 xl:h-20 cursor-none z-15 rounded-full bg-purple-400/10 border-2 border-purple-300/50 backdrop-blur-xs inner-glow items-center justify-center inner-glow hover:scale-110 transition-all duration-400 text-purple-400 font-bold text-3xl md:text-4xl flex" onclick={() => rotate('down')}><span class="w-full h-full flex justify-center items-center absolute bottom-1">&#8681;</span></button>
+  <button class="absolute left-[50%] top-[5%] translate-x-[-50%] w-15 h-15 lg:w-20 lg:h-20 md:w-20 md:h-20 xl:w-20 xl:h-20 cursor-none z-50 rounded-full bg-purple-400/10 border-2 border-purple-300/50 backdrop-blur-xs inner-glow flex items-center justify-center inner-glow hover:scale-110 transition-all duration-400 text-purple-400 font-bold text-3xl md:text-4xl" onclick={() => rotate('up')}><span class="w-full h-full flex justify-center items-center absolute bottom-1">&#8679;</span></button>
+  <button class="absolute left-[50%] bottom-[5%] translate-x-[-50%] w-15 h-15 lg:w-20 lg:h-20 md:w-20 md:h-20 xl:w-20 xl:h-20 cursor-none z-50 rounded-full bg-purple-400/10 border-2 border-purple-300/50 backdrop-blur-xs inner-glow items-center justify-center inner-glow hover:scale-110 transition-all duration-400 text-purple-400 font-bold text-3xl md:text-4xl flex" onclick={() => rotate('down')}><span class="w-full h-full flex justify-center items-center absolute bottom-1">&#8681;</span></button>
 
 </div>
 
