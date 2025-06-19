@@ -314,6 +314,14 @@ if (width < 800) {
     z-index: 1;
   }
 
+  @supports (-webkit-overflow-scrolling: touch) {
+  .special-bubble {
+    backdrop-filter: blur(0);
+    box-shadow: inset 0 0 20px 8px rgba(196, 166, 255, 0.3);
+    animation-duration: 10s; /* slower animation */
+  }
+  }
+
   @media screen and (max-width: 800px) and (orientation: portrait) {
     .special-bubble {
       width: 200vw;
@@ -335,19 +343,19 @@ if (width < 800) {
   }
 
   @keyframes float-slow {
-    0% {
-      transform: translateX(0) translateY(0) scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: translateX(5px) translateY(-10px) scale(1.05);
-      opacity: 0.95;
-    }
-    100% {
-      transform: translateX(0) translateY(0) scale(1);
-      opacity: 1;
-    }
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
   }
+  50% {
+    transform: translate3d(5px, -10px, 0) scale(1.05);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
 
   .text-animation {
     animation: text 3s infinite alternate ease-in-out;
