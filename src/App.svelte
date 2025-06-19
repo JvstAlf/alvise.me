@@ -3,7 +3,8 @@
   import DesktopInfo from './lib/DesktopInfo.svelte';
   import MobileInfo from './lib/MobileInfo.svelte'
   import Posters from './lib/Posters.svelte';
-  import Thumbnails from './lib/Thumbnails.svelte';
+  import MobileThumbnails from './lib/MobileThumbnails.svelte';
+  import DesktopThumbnails from './lib/DesktopThumbnails.svelte';
   import Bubbles from './lib/Bubbles.svelte';
   import Websites from './lib/Websites.svelte'
   import { onMount } from 'svelte';
@@ -73,7 +74,11 @@ $inspect(cursorBig)
 
   <Posters setCursorBig={setCursorBig}/>
 
-  <Thumbnails setCursorBig={setCursorBig}/>
+  {#if window.innerWidth < 800}
+  <MobileThumbnails />
+  {:else}
+  <DesktopThumbnails setCursorBig={setCursorBig}/>
+  {/if}
 
   <Websites setCursorBig={setCursorBig}/>
 

@@ -107,7 +107,7 @@ function checkScroll() {
   animation-duration: 10s;
   transform-origin: center;
   user-select: none;
-  opacity: 0.5 !important;
+  opacity: 0.3 !important;
   animation-play-state: paused;
   }
 

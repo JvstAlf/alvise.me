@@ -44,7 +44,7 @@
   </div>
 
   <div
-    class="transition-all duration-700 ease-in-out w-60 h-60 flex justify-center items-center rounded-full bg-purple-400/10 border border-purple-300/30 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[16%] left-[40%]"
+    class="transition-all duration-700 ease-in-out w-60 h-60 flex justify-center items-center rounded-full bg-violet-400/10 border border-violet-300/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow-indigo absolute top-[16%] left-[40%]"
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}
@@ -56,7 +56,7 @@
   </div>
 
   <a
-    class="transition-all text-center duration-700 ease-in-out w-40 h-40 hover:scale-110 flex justify-center text-2xl bagel cursor-none items-center rounded-full bg-purple-400/20 border border-purple-400/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[55%] left-[10%]"
+    class="transition-all text-center duration-700 ease-in-out w-40 h-40 hover:scale-110 flex justify-center text-2xl bagel cursor-none items-center rounded-full bg-violet-400/20 border border-violet-400/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow-indigo absolute top-[55%] left-[10%]"
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}
@@ -84,7 +84,7 @@
   </a>
 
   <div
-    class="transition-all duration-700 ease-in-out w-100 h-100 flex justify-center items-center rounded-full bg-purple-400/10 border border-purple-300/30 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[50%] left-[30%]"
+    class="transition-all duration-700 ease-in-out w-100 h-100 flex justify-center items-center rounded-full bg-violet-400/10 border border-violet-300/30 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow-indigo absolute top-[50%] left-[30%]"
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}
@@ -95,7 +95,7 @@
   <p class="w-[85%] text-center text-lg bagel leading-relaxed">
     Graduated at <br>
     <a 
-      class="text-purple-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
+      class="text-violet-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
       href="https://www.liceoguggenheim.edu.it/" target="_blank"
       onmouseenter={() => setCursorBig(true)} onmouseleave={() => setCursorBig(false)}
     >
@@ -103,14 +103,14 @@
     </a><br>
     Work Experience:<br>
     <a 
-      class="text-purple-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
+      class="text-violet-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
       href="https://www.deminternationalveniceartgallery.com/" target="_blank"
       onmouseenter={() => setCursorBig(true)} onmouseleave={() => setCursorBig(false)}
     >
     D'E.M. International Venice Art Gallery
     </a><br>
     <a 
-      class="text-purple-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
+      class="text-violet-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
       href="https://www.winofsk.com/" target="_blank"
       onmouseenter={() => setCursorBig(true)} onmouseleave={() => setCursorBig(false)}
     >
@@ -226,6 +226,11 @@
 <style>
   .inner-glow {
     box-shadow: inset 0 0 24px 8px rgba(154, 107, 248, 0.3);
+    animation: float-slow 4s infinite alternate;
+  }
+
+  .inner-glow-indigo {
+    box-shadow: inset 0 0 24px 8px rgba(133, 107, 248, 0.3);
     animation: float-slow 4s infinite alternate;
   }
 

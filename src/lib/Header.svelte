@@ -85,14 +85,19 @@ bubbles = [
     if(width < 800) {
       if (scrollY <= 0.9 * vh) {
       bubbleScale = scrollY / (0.9 * vh);
-    } else if (scrollY <= 0.9 * vh) {
+    } else if (scrollY <= 1.1 * vh) {
         bubbleScale = 1
     } else if (scrollY <= 1.75 * vh) {
       const t = (scrollY - 1 * vh) / (0.75 * vh);
       bubbleScale = 1 - t * (1 - minScale);
-    } else {
-      bubbleScale = minScale;
-    }
+    } else if (scrollY <= 4 * vh && scrollY >= 3.5 * vh) {
+    const t = (scrollY - 3.5 * vh) / (0.5 * vh);
+    bubbleScale = minScale + t * (1 - minScale);
+  } else if (scrollY < 3.5 * vh) {
+    bubbleScale = 0;
+  } else {
+    bubbleScale = 0.9;
+  }
     } else {
     if (scrollY <= 0.9 * vh) {
       bubbleScale = scrollY / (0.9 * vh);

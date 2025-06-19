@@ -70,7 +70,7 @@ function showPrograms(value: boolean) {
   </div>
 
   <div
-    class="transition-all duration-700 ease-in-out w-40 h-40 flex justify-center items-center rounded-full bg-purple-400/10 border border-purple-300/30 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[8%] right-[10%]"
+    class="transition-all duration-700 ease-in-out w-40 h-40 flex justify-center items-center rounded-full bg-violet-400/10 border border-violet-300/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow-indigo absolute top-[8%] right-[10%]"
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}
@@ -83,7 +83,7 @@ function showPrograms(value: boolean) {
   </div>
 
   <div
-    class="transition-all duration-700 ease-in-out w-80 h-80 flex justify-center items-center rounded-full bg-purple-400/10 border border-purple-300/30 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[30%] left-[50%] translate-x-[-50%]"
+    class="transition-all duration-700 ease-in-out w-80 h-80 flex justify-center items-center rounded-full bg-violet-400/10 border border-violet-300/50 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow-indigo absolute top-[30%] left-[50%] translate-x-[-50%]"
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}
@@ -95,20 +95,20 @@ function showPrograms(value: boolean) {
   <p class="w-[85%] text-center text-md bagel leading-relaxed">
     Graduated at <br>
     <a 
-      class="text-purple-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
+      class="text-violet-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
       href="https://www.liceoguggenheim.edu.it/" target="_blank"
     >
     Michelangelo Guggenheim's Art High School
     </a><br>
     Work Experience:<br>
     <a 
-      class="text-purple-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
+      class="text-violet-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
       href="https://www.deminternationalveniceartgallery.com/" target="_blank"
     >
     D'E.M. International Venice Art Gallery
     </a><br>
     <a 
-      class="text-purple-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
+      class="text-violet-500 hover:scale-110 inline-block transition-all duration-200 underline-offset-1 hover:underline cursor-none" 
       href="https://www.winofsk.com/" target="_blank"
     >
     Winofsk Art Oasis
@@ -145,7 +145,7 @@ function showPrograms(value: boolean) {
   >Curriculum
   </a>
 
-  <button onclick={() => showPrograms(true)} class="transition-all duration-700 ease-in-out w-30 h-30 flex justify-center items-center rounded-full bg-purple-400/10 border border-purple-300/30 pointer-events-auto z-15 backdrop-blur-xs transform text-lg inner-glow absolute bottom-[10%] left-[50%] translate-x-[-50%] bagel"
+  <button onclick={() => showPrograms(true)} class="transition-all duration-700 ease-in-out w-30 h-30 flex justify-center items-center rounded-full bg-violet-400/15 border border-violet-300/50 pointer-events-auto z-15 backdrop-blur-xs transform text-lg inner-glow-indigo absolute bottom-[10%] left-[50%] translate-x-[-50%] bagel"
     bind:this={button1}>Click to see Skills</button>
 
   </div>
@@ -243,7 +243,7 @@ function showPrograms(value: boolean) {
   setCursorBig='0'
   />
 
-  <button onclick={() => showPrograms(false)} class="transition-all duration-700 ease-in-out w-30 h-30 flex justify-center items-center rounded-full bg-purple-400/10 border border-purple-300/30 pointer-events-auto z-15 backdrop-blur-xs text-lg transform inner-glow absolute bottom-[10%] left-[50%] translate-x-[-50%] bagel"
+  <button onclick={() => showPrograms(false)} class="transition-all duration-700 ease-in-out w-30 h-30 flex justify-center items-center rounded-full bg-violet-400/15 border border-violet-300/30 pointer-events-auto z-15 backdrop-blur-xs text-lg transform inner-glow-indigo absolute bottom-[10%] left-[50%] translate-x-[-50%] bagel"
     bind:this={button2}>Click to see Info</button>
 
   </div>
@@ -251,8 +251,14 @@ function showPrograms(value: boolean) {
 </section>
 
 <style>
+
   .inner-glow {
     box-shadow: inset 0 0 24px 8px rgba(154, 107, 248, 0.3);
+    animation: float-slow 4s infinite alternate;
+  }
+
+  .inner-glow-indigo {
+    box-shadow: inset 0 0 24px 8px rgba(133, 107, 248, 0.3);
     animation: float-slow 4s infinite alternate;
   }
 

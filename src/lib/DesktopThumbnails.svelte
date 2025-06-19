@@ -2,28 +2,23 @@
   import { writable } from 'svelte/store';
   import { onMount } from 'svelte'
 
-  const slides = [
-    'https://www.alvise.me/images/norainnoflowers.webp',
-    'https://www.alvise.me/images/sicfnmt.webp',
-    'https://www.alvise.me/images/eyesneverlies.webp',
-    'https://www.alvise.me/images/eyesnsmile.webp',
-    'https://www.alvise.me/images/shootingforthestars.webp',
-    'https://www.alvise.me/images/norainnoflowers.webp',
-    'https://www.alvise.me/images/sicfnmt.webp',
-    'https://www.alvise.me/images/eyesneverlies.webp',
-    'https://www.alvise.me/images/eyesnsmile.webp',
-    'https://www.alvise.me/images/shootingforthestars.webp',
+    const slides = [
+    'https://www.alvise.me/images/cytokinesis.webp',
+    'https://www.alvise.me/images/euouae.webp',
+    'https://www.alvise.me/images/napalm.webp',
+    'https://www.alvise.me/images/5000.webp',
+    'https://www.alvise.me/images/subsonic.webp',
+    'https://www.alvise.me/images/cytokinesis.webp',
+    'https://www.alvise.me/images/euouae.webp',
+    'https://www.alvise.me/images/napalm.webp',
+    'https://www.alvise.me/images/5000.webp',
+    'https://www.alvise.me/images/subsonic.webp',
   ];
 
 const rotation = writable(0);
 const slideCount = slides.length;
 const angleStep = 36;
-let radius = $state()
-if(window.innerWidth < 800) {
-   radius = 300
-} else {
-   radius = 500;
-}
+let radius = $state(600)
 
 let hoveredIndex: number | null = null;
 
@@ -91,7 +86,7 @@ let isVisible = $state(false);
 
 </script>
 
-<section class="w-full h-screen flex flex-col items-center justify-center relative transition-all duration-500"
+<section class="w-full h-screen flex flex-col items-center justify-center relative transition-all duration-500 overflow-x-hidden"
 bind:this={element}
   class:opacity-100={isVisible}
   class:opacity-0={!isVisible}
@@ -100,20 +95,9 @@ bind:this={element}
     class:scale-0={!isVisible}
     class:scale-100={isVisible}>
 
-    {#if window.innerWidth > 800}
-
   <div class="absolute top-5 left-15 xl:w-40 xl:h-40 l:w-40 l:h-40 md:w-35 md:h-35 h-30 w-30 cursor-none z-15 rounded-full inner-glow bg-purple-400/15 border border-purple-300/80 backdrop-blur-xs flex items-center justify-center hover:scale-110 transition-all duration-400">
-  <p class="bagel xl:text-3xl lg:text-3xl md:text-3xl text-2xl">Posters</p>
+  <p class="bagel md:text-2xl text-xl">Thumbnails</p>
   </div>
-
-  {:else}
-
-  <div
-   class="absolute top-[-7%] right-[-10%] h-50 w-50 cursor-none z-15 rounded-full inner-glow bg-purple-400/15 border border-purple-300/80 backdrop-blur-xs transition-all duration-500">
-  </div>
-  <p class="bagel text-3xl z-20 absolute right-0 top-5 p-2.5 text-an">Posters</p>
-
-  {/if}
 
 <div
   class="carousel-wrapper transition-all duration-500"
@@ -160,9 +144,7 @@ bind:this={element}
     width: 100%;
     position: relative;
     user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
   }
 
   .carousel {
@@ -175,10 +157,10 @@ bind:this={element}
 
   .carousel__slide {
     position: absolute;
-    width: 280px;   /* narrower width to match A4 ratio */
-    height: 420px;  /* taller height for poster */
-    left: calc(50% - 140px);
-    top: calc(50% - 210px);
+    width: 350px;
+    height: 198px;
+    left: calc(50% - 175px);
+    top: calc(50% - 99px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     border-radius: 12px;
     overflow: hidden;
@@ -192,14 +174,10 @@ bind:this={element}
 
   @media screen and (max-width: 800px) and (orientation: portrait) {
     .carousel__slide {
-      width: 175px;
-      height: 247px;
-      left: calc(50% - 87.5px);
-      top: calc(50% - 123.5px);
-    }
-
-    .carousel-wrapper {
-      perspective: 1000px;
+      width: 200px;
+      height: 113px;
+      left: calc(50% - 100px);
+      top: calc(50% - 56.5px);
     }
   }
 
@@ -212,10 +190,6 @@ bind:this={element}
 
   .inner-glow {
     box-shadow: inset 0 0 24px 8px rgba(154, 107, 248, 0.3);
-    animation: float-slow 4s infinite alternate;
-  }
-
-  .text-an {
     animation: float-slow 4s infinite alternate;
   }
 
