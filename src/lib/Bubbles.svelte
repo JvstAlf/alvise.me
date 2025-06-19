@@ -10,11 +10,19 @@
   })
 
 function checkScroll() {
+  if(window.innerWidth < 800) {
   if (window.scrollY >= window.innerHeight * 1.5 && window.scrollY <= window.innerHeight * 3.5) {
     scale = 1
   } else {
     scale = 0;
   } 
+  } else {
+    if (window.scrollY >= window.innerHeight * 1.5) {
+    scale = 1
+  } else {
+    scale = 0;
+  } 
+  }
 }
 
   interface Bubble {

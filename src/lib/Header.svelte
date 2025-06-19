@@ -153,12 +153,8 @@ if (width < 800) {
     newScale = 1;
   } else if (scrollY <= 1.9 * vh) {
     newScale = 1 - ((scrollY - 1.1 * vh) / (0.8 * vh)) * (1 - minScale);
-  } else if (scrollY <= 3.5 * vh) {
-    newScale = minScale;
-  } else if (scrollY <= 4 * vh) {
-    newScale = minScale + ((scrollY - 3.5 * vh) / (0.5 * vh)) * (1 - minScale);
   } else {
-    newScale = 1;
+    newScale = 0;
   }
 }
 
