@@ -111,7 +111,7 @@ let isVisible = $state(false);
 
 </script>
 
-<section class="w-full h-screen flex flex-col relative transition-all duration-500 overflow"
+<section class="w-full h-screen-dvh flex flex-col relative transition-all duration-500 overflow"
 bind:this={element}
   class:opacity-100={isVisible}
   class:opacity-0={!isVisible}
@@ -136,7 +136,6 @@ bind:this={element}
   class="carousel-wrapper transition-all duration-500 absolute bottom-0"
   role="region"
   aria-label="Image Carousel"
-  bind:this={carouselWrapper}
 >
   <div class="carousel" style="transform: rotateX({$rotation}deg);">
     {#each slides as src, i}
@@ -149,6 +148,7 @@ bind:this={element}
   onpointerup={onPointerUp}
   onpointercancel={onPointerUp}
   onmouseleave={onPointerUp}
+  bind:this={carouselWrapper}
 >
 <a class="absolute top-2 right-2 w-8 h-8 cursor-none z-15 rounded-full bg-purple-400/10 border border-purple-300/50 backdrop-blur-xs flex items-center justify-center transition-all duration-400 text-white font-bold text-xl hover:scale-110" href={src}>➦</a>
   <img

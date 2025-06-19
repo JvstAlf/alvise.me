@@ -211,7 +211,7 @@ if (width < 800) {
   });
 </script>
 
-<section class="relative w-full h-screen flex items-center justify-center overflow-y-visible text-black overflow-x-hidden">
+<section class="relative w-full h-screen-dvh flex items-center justify-center overflow-y-visible text-black overflow-x-hidden">
   <img src="assets/logo.png" alt="logo" class="w-[75%] absolute top-[50%] left-[50%] translate-[-50%] opacity-10" />
 
   {#each bubbles as bubble (bubble.id)}

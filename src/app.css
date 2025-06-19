@@ -16,6 +16,14 @@ html, body {
   overflow-x: hidden !important;
 }
 
+.h-screen-dvh {
+  height: 100dvh !important;
+}
+
+.min-h-screen-dvh {
+  min-height: 100dvh !important;
+}
+
 @media screen and (min-width: 1200px) and (orientation: landscape) {
   html, body {
     cursor: none;

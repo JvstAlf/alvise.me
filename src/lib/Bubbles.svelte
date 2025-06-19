@@ -80,7 +80,7 @@ function checkScroll() {
 
 </script>
 
-<section class="fixed w-full h-screen top-0 transition-all duration-700 pointer-events-none"
+<section class="fixed w-full h-screen-dvh top-0 transition-all duration-700 pointer-events-none"
   class:scale-0={scale === 0}
   class:scale-100={scale === 1}
 >

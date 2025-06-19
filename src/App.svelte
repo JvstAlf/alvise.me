@@ -45,7 +45,7 @@ $inspect(cursorBig)
   });
 </script>
 
-<main class="w-full min-h-screen cursor-none relative overflow-x-hidden">
+<main class="w-full min-h-screen-dvh cursor-none relative overflow-x-hidden">
   <!-- Custom cursor -->
   {#if cursorVisible && window.innerWidth > 800}
   <div

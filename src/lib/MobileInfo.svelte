@@ -46,7 +46,7 @@ function showPrograms(value: boolean) {
 
 </script>
 
-<section class="w-full h-screen flex relative z-10 transition-all duration-500 overflow-x-hidden" bind:this={element}
+<section class="w-full h-screen-dvh flex relative z-10 transition-all duration-500 overflow-x-hidden" bind:this={element}
   class:opacity-100={isVisible}
   class:opacity-0={!isVisible}
   class:translate-y-15={!isVisible}
@@ -54,7 +54,7 @@ function showPrograms(value: boolean) {
   class:scale-0={!isVisible}
   class:scale-100={isVisible}>
 
-  <div bind:this={info} class="w-full h-screen absolute">
+  <div bind:this={info} class="w-full h-screen-dvh absolute">
 
   <div
     class="transition-all duration-700 ease-in-out w-30 h-30 flex justify-center items-center rounded-full bg-purple-400/10 border border-purple-300/30 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[10%] left-[10%]"
@@ -151,7 +151,7 @@ function showPrograms(value: boolean) {
   </div>
 
 
-  <div class="w-full h-screen transition-all duration-600 absolute translate-x-[1000px] pointer-events-none hidden" bind:this={programs}>
+  <div class="w-full h-screen-dvh transition-all duration-600 absolute translate-x-[1000px] pointer-events-none hidden" bind:this={programs}>
 
   <Program
   href="https://en.wikipedia.org/wiki/HTML"

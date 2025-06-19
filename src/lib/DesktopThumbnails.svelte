@@ -86,7 +86,7 @@ let isVisible = $state(false);
 
 </script>
 
-<section class="w-full h-screen flex flex-col items-center justify-center relative transition-all duration-500 overflow-x-hidden"
+<section class="w-full h-screen-dvh flex flex-col items-center justify-center relative transition-all duration-500 overflow-x-hidden"
 bind:this={element}
   class:opacity-100={isVisible}
   class:opacity-0={!isVisible}
