@@ -73,14 +73,17 @@ $inspect(cursorBig)
   <DesktopInfo setCursorBig={setCursorBig}/>
   {/if}
 
+  <div id="posters"></div>
   <Posters setCursorBig={setCursorBig}/>
 
+  <div id="thumbnails"></div>
   {#if window.innerWidth < 800}
   <MobileThumbnails />
   {:else}
   <DesktopThumbnails setCursorBig={setCursorBig}/>
   {/if}
 
+  <div id="websites"></div>
   <Websites setCursorBig={setCursorBig}/>
 
   <Footer setCursorBig={setCursorBig}/>
