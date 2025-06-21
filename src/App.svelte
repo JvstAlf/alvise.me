@@ -7,6 +7,7 @@
   import DesktopThumbnails from './lib/DesktopThumbnails.svelte';
   import Bubbles from './lib/Bubbles.svelte';
   import Websites from './lib/Websites.svelte'
+  import Footer from './lib/Footer.svelte'
   import { onMount } from 'svelte';
 
 let cursorX = $state(0);
@@ -62,7 +63,7 @@ $inspect(cursorBig)
   ></div>
   {/if}
 
-  <Header />
+  <Header setCursorBig={setCursorBig}/>
 
   <Bubbles />
 
@@ -82,6 +83,8 @@ $inspect(cursorBig)
 
   <Websites setCursorBig={setCursorBig}/>
 
-  <p class="p-5 w-full text-center text-xs text-gray-500 absolute bottom-0">Built with Svelte + Tailwind CSS + Typescript</p>
+  <Footer setCursorBig={setCursorBig}/>
+
+  <p class="p-5 w-full text-center text-xs text-white/50 absolute bottom-0 z-150">Built with Svelte + Tailwind CSS + Typescript<br>© 2025 Zurlandi Alvise</p>
 
 </main>

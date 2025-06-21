@@ -115,13 +115,9 @@ function checkScroll() {
   transform-origin: center;
   user-select: none;
   opacity: 0.3 !important;
-  animation-play-state: paused;
-  }
-
-  .bubble.visible {
   animation-play-state: running;
-}
-
+  }
+  
   .inner-glow {
     box-shadow: inset 0 0 40px 10px rgba(196, 166, 255, 0.75);
   }

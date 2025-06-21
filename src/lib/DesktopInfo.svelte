@@ -29,7 +29,7 @@
 
 </script>
 
-<section class="w-full h-screen-dvh flex relative z-10 overflow-x-hidden" bind:this={element}>
+<section class="w-full h-screen-dvh flex relative z-10 overflow-x-hidden" id="info" bind:this={element}>
 
   <div
     class="transition-all duration-700 ease-in-out w-70 h-70 flex justify-center items-center rounded-full bg-purple-400/10 border border-purple-300/30 pointer-events-auto z-15 backdrop-blur-xs transform inner-glow absolute top-[20%] left-[15%]"

@@ -46,7 +46,7 @@ function showPrograms(value: boolean) {
 
 </script>
 
-<section class="w-full h-screen-dvh flex relative z-10 transition-all duration-500 overflow-x-hidden" bind:this={element}
+<section class="w-full h-screen-dvh flex relative z-10 transition-all duration-500 overflow-x-hidden" bind:this={element} id="info"
   class:opacity-100={isVisible}
   class:opacity-0={!isVisible}
   class:translate-y-15={!isVisible}

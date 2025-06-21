@@ -139,12 +139,13 @@ if (width < 800) {
   } else if (scrollY <= 1.75 * vh) {
     newScale = 1 - ((scrollY - 1 * vh) / (0.75 * vh)) * (1 - minScale);
   } else if (scrollY <= 3.5 * vh) {
-    // Hold at minScale between 1.75vh and 3.5vh
     newScale = minScale;
   } else if (scrollY <= 4 * vh) {
     newScale = minScale + ((scrollY - 3.5 * vh) / (0.5 * vh)) * (1 - minScale);
+  } else if (scrollY <= 4.5 * vh) {
+    newScale = 1 - ((scrollY - 4 * vh) / (0.5 * vh)) * (1 - minScale);
   } else {
-    newScale = 1;
+    newScale = 0;
   }
 } else {
   if (scrollY <= 0.9 * vh) {
@@ -152,7 +153,9 @@ if (width < 800) {
   } else if (scrollY <= 1.1 * vh) {
     newScale = 1;
   } else if (scrollY <= 1.9 * vh) {
-    newScale = 1 - ((scrollY - 1.1 * vh) / (0.8 * vh)) * (1 - minScale);
+    newScale = 1 - ((scrollY - 1.1 * vh) / (0.8 * vh)) * 1;
+  } else if (scrollY >= 2 * vh) {
+    newScale = 0
   } else {
     newScale = 0;
   }
@@ -209,9 +212,12 @@ if (width < 800) {
       window.removeEventListener('scroll', onScroll);
     };
   });
+
+  let { setCursorBig } = $props()
+
 </script>
 
-<section class="relative w-full h-screen-dvh flex items-center justify-center overflow-y-visible text-black overflow-x-hidden">
+<section class="relative w-full h-screen-dvh flex items-center justify-center overflow-y-visible text-black overflow-x-hidden" id="header">
   <img src="assets/logo.png" alt="logo" class="w-[75%] absolute top-[50%] left-[50%] translate-[-50%] opacity-10" />
 
   {#each bubbles as bubble (bubble.id)}
@@ -238,9 +244,13 @@ if (width < 800) {
     {/key}
   {/each}
 
+  <a href="#info" class="hover:scale-103 transition-all duration-400 cursor-none z-10"
+  onmouseenter={() => setCursorBig(true)}
+    onmouseleave={() => setCursorBig(false)}>
   <h1 class="text-scale relative z-10 fungky text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] selection:bg-[var(--main-color)] selection:text-white text-animation text-center">
     Alvise Zurlandi
   </h1>
+  </a>
 </section>
 
 <div

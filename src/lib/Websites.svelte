@@ -28,7 +28,7 @@
   });
 </script>
 
-<section class="w-full h-screen-dvh flex justify-center items-center relative transition-all duration-500" bind:this={element}
+<section class="w-full h-screen-dvh flex justify-center items-center relative transition-all duration-500" bind:this={element} id="websites"
     class:opacity-100={isVisible}
     class:opacity-0={!isVisible}
     class:translate-y-15={!isVisible}

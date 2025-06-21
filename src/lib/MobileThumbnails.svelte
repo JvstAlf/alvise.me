@@ -111,7 +111,7 @@ let isVisible = $state(false);
 
 </script>
 
-<section class="w-full h-screen-dvh flex flex-col relative transition-all duration-500 overflow items-center"
+<section class="w-full h-screen-dvh flex flex-col relative transition-all duration-500 overflow items-center" id="thumbnails"
 bind:this={element}
   class:opacity-100={isVisible}
   class:opacity-0={!isVisible}
