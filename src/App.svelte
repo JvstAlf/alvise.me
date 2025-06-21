@@ -14,7 +14,7 @@ let cursorX = $state(0);
 let cursorY = $state(0);
 let cursorVisible = $state(false);
 let cursorBig = $state(false);
-$inspect(cursorBig)
+let cursorWhite = $state(false)
 
   function onMouseMove(e: MouseEvent) {
     cursorX = e.clientX;
@@ -28,6 +28,10 @@ $inspect(cursorBig)
 
   function setCursorBig(value: boolean) {
     cursorBig = value;
+  }
+
+  function setCursorWhite(value: boolean) {
+    cursorWhite = value
   }
 
   onMount(() => {
@@ -50,7 +54,7 @@ $inspect(cursorBig)
   <!-- Custom cursor -->
   {#if cursorVisible && window.innerWidth > 800}
   <div
-    class="pointer-events-none fixed z-999 rounded-full bg-purple-500/30 backdrop-blur-xs transition-all duration-200 ease-out"
+    class="pointer-events-none fixed z-999 rounded-full backdrop-blur-xs transition-all duration-200 ease-out"
     style="
       width: {cursorBig ? '42px' : '20px'};
       height: {cursorBig ? '42px' : '20px'};
@@ -58,7 +62,8 @@ $inspect(cursorBig)
       transform: translate(-50%, -50%);
       left: {cursorX}px;
       top: {cursorY}px;
-      box-shadow: 0 0 {cursorBig ? '50px' : '25px'} 5px rgba(180,100,255,0.7)
+      box-shadow: 0 0 {cursorBig ? '50px' : '25px'} 5px rgba(180,100,255,0.7);
+      background-color: {cursorWhite ? 'rgba(226, 196, 255, 0.4)' : 'rgba(168, 85, 247, 0.3)'}
     "
   ></div>
   {/if}
@@ -86,7 +91,7 @@ $inspect(cursorBig)
   <div id="websites"></div>
   <Websites setCursorBig={setCursorBig}/>
 
-  <Footer setCursorBig={setCursorBig}/>
+  <Footer setCursorBig={setCursorBig} setCursorWhite={setCursorWhite}/>
 
   <p class="p-5 w-full text-center text-xs text-white/50 absolute bottom-0 z-150">Built with Svelte + Tailwind CSS + Typescript<br>© 2025 Zurlandi Alvise</p>
 

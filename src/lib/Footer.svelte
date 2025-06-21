@@ -1,9 +1,11 @@
 <script lang="ts">
-    let { setCursorBig } = $props()
+    let { setCursorBig, setCursorWhite } = $props()
 </script>
 
 <section class="h-screen-dvh w-full flex items-end z-5">
-    <footer class="w-full md:h-[70%] h-[80%] bg-linear-to-t from-violet-500/70 to-purple-500/70 z-5 flex md:justify-around justify-start items-center md:p-5 p-3 md:gap-10 gap-2 text-center flex-col md:flex-row">
+    <footer class="w-full md:h-[70%] h-[80%] gradient z-5 flex md:justify-around justify-start items-center md:p-5 p-3 md:gap-10 gap-2 text-center flex-col md:flex-row"
+    onmouseenter={() => setCursorWhite(true)}
+    onmouseleave={() => setCursorWhite(false)}>
 
         <div class="md:h-[80%] w-[100%] md:p-6 p-2 flex flex-col justify-start items-center">
             <h1 class="md:text-3xl lg:text-4xl text-2xl bagel text-white p-6">Sections:</h1>
@@ -72,4 +74,22 @@
     .text-stroke {
         text-shadow: 0 3px 5px rgba(81, 0, 187, 0.7)
     }
+
+    .gradient {
+        background: linear-gradient(0deg, rgba(162, 0, 255, 0.6),rgba(111, 0, 255, 0.6));
+        background-size: 400% 400%;
+        animation: gradient 4s ease infinite;
+    }
+
+    @keyframes gradient {
+    0% {
+      background-position: 50% 0%;
+    }
+    50% {
+      background-position: 50% 100%;
+    }
+    100% {
+      background-position: 50% 0%;
+    }
+  }
 </style>
