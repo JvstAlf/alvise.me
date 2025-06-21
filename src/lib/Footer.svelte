@@ -3,7 +3,7 @@
 </script>
 
 <section class="h-screen-dvh w-full flex items-end z-5">
-    <footer class="w-full md:h-[70%] h-[80%] bg-linear-to-t from-violet-500/80 to-purple-500/80 z-5 flex md:justify-around justify-start items-center md:p-5 p-3 md:gap-10 gap-2 text-center flex-col md:flex-row">
+    <footer class="w-full md:h-[70%] h-[80%] bg-linear-to-t from-violet-500/70 to-purple-500/70 z-5 flex md:justify-around justify-start items-center md:p-5 p-3 md:gap-10 gap-2 text-center flex-col md:flex-row">
 
         <div class="md:h-[80%] w-[100%] md:p-6 p-2 flex flex-col justify-start items-center">
             <h1 class="md:text-3xl lg:text-4xl text-2xl bagel text-white p-6">Sections:</h1>
