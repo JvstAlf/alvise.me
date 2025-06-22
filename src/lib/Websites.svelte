@@ -117,7 +117,7 @@
     onmouseenter={() => setCursorBig(true)}
     onmouseleave={() => setCursorBig(false)}
     onclick={() => handleIframeLinkClick('https://old.alvise.me/')}
-    ><img src="https://www.alvise.me/favicon.ico" class="absolute w-[40%] object-center p-1 rounded-full bg-white/70 inner-glow2 top-[-10%] left-[-10%] backdrop-blur-2xl" alt="logo">
+    ><img src="https://old.alvise.me/favicon.ico" class="absolute w-[40%] object-center p-1 rounded-full bg-white/70 inner-glow2 top-[-10%] left-[-10%] backdrop-blur-2xl" alt="logo">
     Old alvise.me</a>
 
     {/if}

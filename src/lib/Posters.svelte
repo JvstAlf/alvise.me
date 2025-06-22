@@ -3,16 +3,16 @@
   import { onMount } from 'svelte'
 
   const slides = [
-    'https://www.alvise.me/images/norainnoflowers.webp',
-    'https://www.alvise.me/images/sicfnmt.webp',
-    'https://www.alvise.me/images/eyesneverlies.webp',
-    'https://www.alvise.me/images/eyesnsmile.webp',
-    'https://www.alvise.me/images/shootingforthestars.webp',
-    'https://www.alvise.me/images/norainnoflowers.webp',
-    'https://www.alvise.me/images/sicfnmt.webp',
-    'https://www.alvise.me/images/eyesneverlies.webp',
-    'https://www.alvise.me/images/eyesnsmile.webp',
-    'https://www.alvise.me/images/shootingforthestars.webp',
+    'https://old.alvise.me/images/norainnoflowers.webp',
+    'https://old.alvise.me/images/sicfnmt.webp',
+    'https://old.alvise.me/images/eyesneverlies.webp',
+    'https://old.alvise.me/images/eyesnsmile.webp',
+    'https://old.alvise.me/images/shootingforthestars.webp',
+    'https://old.alvise.me/images/norainnoflowers.webp',
+    'https://old.alvise.me/images/sicfnmt.webp',
+    'https://old.alvise.me/images/eyesneverlies.webp',
+    'https://old.alvise.me/images/eyesnsmile.webp',
+    'https://old.alvise.me/images/shootingforthestars.webp',
   ];
 
 const rotation = writable(0);
