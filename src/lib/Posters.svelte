@@ -136,6 +136,7 @@ bind:this={element}
 <a class="absolute top-2 right-2 w-8 h-8 cursor-none z-15 rounded-full bg-purple-400/10 border border-purple-300/50 backdrop-blur-xs flex items-center justify-center transition-all duration-400 text-white font-bold text-xl hover:scale-110" href={src}>➦</a>
   <img
     src={src}
+    loading="lazy"
     alt="Slide {i + 1}"
     onmouseenter={() => setCursorBig(true)}
     onmouseleave={() => setCursorBig(false)}
