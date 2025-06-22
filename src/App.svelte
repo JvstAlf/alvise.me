@@ -98,7 +98,7 @@ let cursorWhite = $state(false)
   <DesktopThumbnails setCursorBig={setCursorBig}/>
   {/if}
 
-  {#if window.innerWidth < 800}\
+  {#if window.innerWidth < 800}
   <MobileBubble />
   {/if}
   <div id="websites"></div>
