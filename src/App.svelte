@@ -9,6 +9,7 @@
   import Websites from './lib/Websites.svelte'
   import Footer from './lib/Footer.svelte'
   import { onMount } from 'svelte';
+  import MobileBubble from './lib/MobileBubble.svelte';
 
 let cursorX = $state(0);
 let cursorY = $state(0);
@@ -34,11 +35,18 @@ let cursorWhite = $state(false)
     cursorWhite = value
   }
 
+  function resetHash() {
+  if (window.location.hash && document.getElementById(window.location.hash.substring(1))) {
+    history.replaceState('', document.title, window.location.pathname);
+  }
+}
+
   onMount(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    resetHash()
 
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseleave', onMouseLeave);
@@ -50,7 +58,7 @@ let cursorWhite = $state(false)
   });
 </script>
 
-<main class="w-full min-h-screen-dvh cursor-none relative overflow-x-hidden">
+<main class="w-full h-auto cursor-none relative overflow-x-hidden">
   <!-- Custom cursor -->
   {#if cursorVisible && window.innerWidth > 800}
   <div
@@ -72,7 +80,9 @@ let cursorWhite = $state(false)
 
   <Bubbles />
 
+  <div id="info"></div>
   {#if window.innerWidth < 800}
+  <MobileBubble />
   <MobileInfo />
   {:else}
   <DesktopInfo setCursorBig={setCursorBig}/>
@@ -88,6 +98,9 @@ let cursorWhite = $state(false)
   <DesktopThumbnails setCursorBig={setCursorBig}/>
   {/if}
 
+  {#if window.innerWidth < 800}\
+  <MobileBubble />
+  {/if}
   <div id="websites"></div>
   <Websites setCursorBig={setCursorBig}/>
 

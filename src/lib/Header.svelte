@@ -253,12 +253,14 @@ if (width < 800) {
   </a>
 </section>
 
+{#if window.innerWidth >= 800}
 <div
   class="fixed top-1/2 left-1/2 pointer-events-auto special-bubble-wrapper"
   style="transform: translate(calc(-50% + {xOffset}px), -50%) scale({bubbleScale}); transition: transform 0.1s ease-out;"
 >
   <div class="special-bubble"></div>
 </div>
+{/if}
 
 <style>
   @keyframes float {
