@@ -112,26 +112,28 @@ bind:this={element}
 >
   <div class="carousel" style="transform: rotateY({$rotation}deg);">
     {#each slides as src, i}
-      <div
-  class="carousel__slide transition-transform duration-300"
-  role="listitem"
-  style="transform: rotateY({i * angleStep}deg) translateZ({radius}px);"
->
-<a class="absolute top-2 right-2 w-8 h-8 cursor-none z-15 rounded-full bg-purple-400/10 border border-purple-300/50 backdrop-blur-xs flex items-center justify-center transition-all duration-400 text-white font-bold text-xl hover:scale-110" href={src}>➦</a>
-  <img
-    src={src}
-    loading="lazy"
-    alt="Slide {i + 1}"
-    onmouseenter={() => setCursorBig(true)}
-    onmouseleave={() => setCursorBig(false)}
-  />
-  
-</div>
-    {/each}
+  <div
+    class="carousel__slide transition-transform duration-300"
+    role="listitem"
+    style="transform: rotateY({i * angleStep}deg) translateZ({radius}px);"
+  >
+    <a
+      class="absolute top-2 right-2 w-8 h-8 cursor-none z-15 rounded-full bg-purple-400/10 border border-purple-300/50 backdrop-blur-xs flex items-center justify-center transition-all duration-400 text-white font-bold text-xl hover:scale-110"
+      href={src}>➦</a>
+
+    <img
+      src={src} 
+      alt="Slide {i + 1}"
+      class="carousel__image"
+      onmouseenter={() => setCursorBig(true)}
+      onmouseleave={() => setCursorBig(false)}
+    />
+  </div>
+{/each}
   </div>
 
-  <button class="absolute left-10 top-[50%] translate-y-[-50%] w-15 h-15 lg:w-20 lg:h-20 md:w-20 md:h-20 xl:w-20 xl:h-20 cursor-none z-50 rounded-full bg-purple-400/10 border-2 border-purple-300/50 backdrop-blur-xs inner-glow flex items-center justify-center inner-glow hover:scale-110 transition-all duration-400 text-purple-400 font-bold text-3xl md:text-4xl" onclick={() => rotate('left')} onmouseenter={() => setCursorBig(true)} onmouseleave={() => setCursorBig(false)}><span class="w-full h-full flex justify-center items-center absolute bottom-1">&#8678;</span></button>
-  <button class="absolute right-10 top-[50%] translate-y-[-50%] w-15 h-15 lg:w-20 lg:h-20 md:w-20 md:h-20 xl:w-20 xl:h-20 cursor-none z-50 rounded-full bg-purple-400/10 border-2 border-purple-300/50 backdrop-blur-xs inner-glow items-center justify-center inner-glow hover:scale-110 transition-all duration-400 text-purple-400 font-bold text-3xl md:text-4xl flex" onclick={() => rotate('right')} onmouseenter={() => setCursorBig(true)} onmouseleave={() => setCursorBig(false)}><span class="w-full h-full flex justify-center items-center absolute bottom-1">&#8680;</span></button>
+  <button class="absolute left-10 top-[50%] translate-y-[-50%] w-15 h-15 lg:w-20 lg:h-20 md:w-20 md:h-20 xl:w-20 xl:h-20 cursor-none z-50 rounded-full bg-purple-400/10 border-2 border-purple-300/50 backdrop-blur-xs inner-glow flex items-center justify-center inner-glow hover:scale-110 transition-all duration-400 text-purple-400 font-bold text-4xl md:text-5xl" onclick={() => rotate('left')} onmouseenter={() => setCursorBig(true)} onmouseleave={() => setCursorBig(false)}><span class="w-full h-full flex justify-center items-center absolute bottom-1">&#x2039;</span></button>
+  <button class="absolute right-10 top-[50%] translate-y-[-50%] w-15 h-15 lg:w-20 lg:h-20 md:w-20 md:h-20 xl:w-20 xl:h-20 cursor-none z-50 rounded-full bg-purple-400/10 border-2 border-purple-300/50 backdrop-blur-xs inner-glow items-center justify-center inner-glow hover:scale-110 transition-all duration-400 text-purple-400 font-bold text-4xl md:text-5xl flex" onclick={() => rotate('right')} onmouseenter={() => setCursorBig(true)} onmouseleave={() => setCursorBig(false)}><span class="w-full h-full flex justify-center items-center absolute bottom-1">&#x203A;</span></button>
 
 </div>
 
@@ -154,23 +156,22 @@ bind:this={element}
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s ease;
+    backface-visibility: hidden;
   }
 
   .carousel__slide {
     position: absolute;
-    width: 350px;
-    height: 198px;
-    left: calc(50% - 175px);
-    top: calc(50% - 99px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    overflow: hidden;
-    backface-visibility: hidden;
-    user-select: none;
-    transform-origin: center center;
-    will-change: transform;
-    backface-visibility: hidden;
-    isolation: isolate;
+  width: 350px;
+  height: 198px;
+  left: calc(50% - 175px);
+  top: calc(50% - 99px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  isolation: isolate;
+  outline: 1px solid transparent;
+  border: 1px solid transparent;
   }
 
   @media screen and (max-width: 800px) and (orientation: portrait) {
@@ -183,11 +184,15 @@ bind:this={element}
   }
 
   .carousel__slide img {
-    object-fit: cover;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Firefox fixes */
+  transform: translateZ(0.01px); /* force GPU layer */
+  backface-visibility: hidden;
+  image-rendering: auto;
+}
 
   .inner-glow {
     box-shadow: inset 0 0 24px 8px rgba(154, 107, 248, 0.3);
