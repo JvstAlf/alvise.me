@@ -64,6 +64,9 @@
             <a href="https://demonlist.alvise.me" target="_blank" class="cursor-none text-white md:text-2xl text-lg bagel text-stroke hover:scale-110 transition-all duration-200 inline-block md:p-3 p-2 border-b-2 border-transparent hover:border-white"
             onmouseenter={() => setCursorBig(true)}
             onmouseleave={() => setCursorBig(false)}>Svelte App</a>
+            <a href="https://drive.google.com/drive/folders/1_-VKGJ1B4l1l6hrtDfT7BO3QnFIcF9di?usp=sharing" target="_blank" class="cursor-none text-white md:text-2xl text-lg bagel text-stroke hover:scale-110 transition-all duration-200 inline-block md:p-3 p-2 border-b-2 border-transparent hover:border-white"
+            onmouseenter={() => setCursorBig(true)}
+            onmouseleave={() => setCursorBig(false)}>Portfolio Images</a>
             </div>
         </div>
 
@@ -92,4 +95,5 @@
       background-position: 50% 0%;
     }
   }
+
 </style>
