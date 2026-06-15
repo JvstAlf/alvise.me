@@ -58,6 +58,9 @@ let cursorWhite = $state(false)
   });
 </script>
 
+<div class="noise"></div>
+
+
 <main class="w-full h-auto cursor-none relative overflow-x-hidden">
   <!-- Custom cursor -->
   {#if cursorVisible && window.innerWidth > 800}
